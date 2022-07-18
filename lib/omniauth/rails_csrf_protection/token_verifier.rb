@@ -16,7 +16,7 @@ module OmniAuth
       include ActiveSupport::Configurable
       include ActionController::RequestForgeryProtection
       
-      self.csrf_token_storage_strategy = CookieStore.new
+      self.csrf_token_storage_strategy = storage_strategy(CookieStore.new)
 
       # `ActionController::RequestForgeryProtection` contains a few
       # configurable options. As we want to make sure that our configuration is
